@@ -11,11 +11,11 @@ namespace Watersystems.ViewModels
     {
         private List<Product> products = new List<Product>();
 
-        private string dataFileName = "Product.csv";
+        private string dataFileName = "Products.csv";
 
-        public void Create(string productName, int productNumber, double quantity, string unitType)
+        public void Create(string productName, int productNumber, double quantity, string unitType, Warehouse warehouse, Supplier supplier)
         {
-            products.Add(new Product(productName, productNumber, quantity, unitType));
+            products.Add(new Product(productName, productNumber, quantity, unitType, warehouse, supplier));
         }
         public Product Get(int productNumber)
         {

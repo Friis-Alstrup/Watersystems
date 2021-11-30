@@ -13,13 +13,13 @@ namespace Watersystems.ViewModels
 
         private string dataFileName = "Order.csv";
 
-        public void Create(int orderNumber, string orderedBy)
+        public void Create(int orderNumber, string orderedBy, List<Product> products)
         {
-            orders.Add(new Order(orderNumber, orderedBy));
+            orders.Add(new Order(orderNumber, orderedBy, products));
         }
-        public void Create(int orderNumber, string orderedBy, string recivedBy)
+        public void Create(int orderNumber, string orderedBy, string recivedBy, List<Product> products)
         {
-            orders.Add(new Order(orderNumber, orderedBy, recivedBy));
+            orders.Add(new Order(orderNumber, orderedBy, recivedBy, products));
         }
         public Order Get(int orderNumber)
         {
