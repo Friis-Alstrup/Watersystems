@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Watersystems"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1280">
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="2" Background="#F4F4F4">
+            <Image Height="100" Width="350" Source="Images/Logo.png"/>
+        </Grid>
+
+
+        <StackPanel Grid.Row="2" Background="#DEDEDE">
+            <Button Height="80" Content="Lager" ></Button>
+            <Button Height="80" Content="Ordrer"></Button>
+        </StackPanel>
+
+        <Frame Grid.Row="2" Grid.Column="2" Content="Frame">
+            
+        </Frame>
+
+
     </Grid>
 </Window>
