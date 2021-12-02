@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Watersystems.Models;
+using System.IO;
 
 namespace Watersystems.ViewModels
 {
@@ -13,9 +14,29 @@ namespace Watersystems.ViewModels
 
         private string dataFileName = "Products.csv";
 
-        public void Create(string productName, int productNumber, double quantity, string unitType, Warehouse warehouse, Supplier supplier)
+        public ProductRepo()
         {
-            products.Add(new Product(productName, productNumber, quantity, unitType, warehouse, supplier));
+            InitializeRepo();
+        }
+
+        private void InitializeRepo()
+        {
+            using (StreamReader sr = new StreamReader(dataFileName))
+            {
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] parts = line.Split(",");
+
+                    this.Create(parts[0], int.Parse( parts[1]), double.Parse(parts[2]), parts[3], int.Parse( parts[4]), parts[5]);
+
+                    line = sr.ReadLine();
+                }
+            }
+        }
+        public void Create(string productName, int productNumber, double quantity, string unitType, int warehouse, string supplier)
+        {
+            products.Add(new Product(productName, productNumber, quantity, unitType, warehouse, new Supplier(supplier)));
         }
         public Product Get(int productNumber)
         {

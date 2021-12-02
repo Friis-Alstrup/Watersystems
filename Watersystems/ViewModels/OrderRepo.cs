@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Watersystems.Models;
+using System.IO;
 
 namespace Watersystems.ViewModels
 {
@@ -12,6 +13,28 @@ namespace Watersystems.ViewModels
         private List<Order> orders = new List<Order>();
 
         private string dataFileName = "Order.csv";
+
+        public OrderRepo()
+        {
+            InitializeRepo();
+        }
+
+        private void InitializeRepo()
+        {
+            using (StreamReader sr = new StreamReader(dataFileName))
+            {
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] parts = line.Split(",");
+
+                    this.Create(int.Parse(parts[0]), parts[1], (parts[2]));
+
+                    line = sr.ReadLine();
+                }
+            }
+        }
+
 
         public void Create(int orderNumber, string orderedBy, List<Product> products)
         {

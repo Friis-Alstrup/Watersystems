@@ -12,10 +12,10 @@ namespace Watersystems.Models
         public int ProductNumber { get; set; }
         public double Quantity { get; set; }
         public string UnitType { get; set; }
-        public Warehouse warehouse { get; set; }
+        public int warehouse { get; set; }
         public Supplier supplier { get; set; }
 
-        public Product(string productName, int productNumber, double quantity, string unitType, Warehouse warehouse, Supplier supplier)
+        public Product(string productName, int productNumber, double quantity, string unitType, int warehouse, Supplier supplier)
         {
             this.ProductName = productName;
             this.ProductNumber = productNumber;

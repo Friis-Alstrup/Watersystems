@@ -13,24 +13,20 @@ namespace Watersystems.ViewModels
         ProductRepo productRepo = new ProductRepo(); 
 
 
-        public void CreateProduct(string productName, int productNumber, double quantity, string unitType, Warehouse warehouse, Supplier supplier )
+        public void CreateProduct(string productName, int productNumber, double quantity, string unitType, int warehouse, string supplier )
         {
             productRepo.Create(productName, productNumber, quantity, unitType, warehouse, supplier);
         }
 
-        public void GetAllProducts()
+        public List<Product> GetAllProducts()
         {
-            productRepo.GetAll();
+            return productRepo.GetAll();
         }
-        public void GetProduct(int productnumber)
+        public Product GetProduct(int productnumber)
         {
-            productRepo.Get(productnumber);
-        }
-
-        public void GetProduct(string productName)
-        {
-
+            return productRepo.Get(productnumber);
         }
 
+  
     }
 }

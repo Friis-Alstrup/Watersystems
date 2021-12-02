@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Watersystems.Models;
 
 namespace Watersystems.ViewModels
 {
    public class SupplierViewModel
     {
-        public void CreateSupplier(string supplierName)
+        public Supplier CreateSupplier(string supplierName)
         {
-
+            return new Supplier(supplierName);
         }
-        public void GetSupplier(string supplierName)
-        {
-
-        }
+      
     }
 }
