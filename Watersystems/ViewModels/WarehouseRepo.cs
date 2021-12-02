@@ -20,18 +20,16 @@ namespace Watersystems.ViewModels
 
         private void InitializeRepo()
         {
-            using (StreamReader sr = new StreamReader(dataFileName))
+           /* using (StreamReader sr = new StreamReader(dataFileName))
             {
                 string line = sr.ReadLine();
                 while (line != null)
                 {
                     string[] parts = line.Split(",");
-
-                    this.Create(int.Parse(parts[0]), parts[1]);
-
+                    warehouses.Add(new Warehouse(int.Parse(parts[0]), parts[1]));
                     line = sr.ReadLine();
                 }
-            }
+            }*/
         }
 
         public void Create(int warehousename, string location)
@@ -57,6 +55,11 @@ namespace Watersystems.ViewModels
             return result;
         }
 
+        public List<Warehouse> GetAll()
+        {
+            return warehouses;
+        }
+
         public void Update()
         {
 
@@ -75,7 +78,7 @@ namespace Watersystems.ViewModels
         {
             using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
             {
-                sw.WriteLine(warehouse);
+                sw.WriteLine($"{warehouse.WarehouseName},{warehouse.Location}");
             }
         }
     }

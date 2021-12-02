@@ -21,7 +21,7 @@ namespace Watersystems.ViewModels
 
         private void InitializeRepo()
         {
-            using (StreamReader sr = new StreamReader(dataFileName))
+            /*using (StreamReader sr = new StreamReader(dataFileName))
             {
                 string line = sr.ReadLine();
                 while (line != null)
@@ -32,7 +32,7 @@ namespace Watersystems.ViewModels
 
                     line = sr.ReadLine();
                 }
-            }
+            }*/
         }
 
         public void Create(int orderNumber, string orderedBy, List<Product> products)
