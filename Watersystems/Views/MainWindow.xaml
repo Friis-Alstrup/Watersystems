@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Watersystems"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
+        Title="Watersystems | Lagersystem" Height="720" Width="1280"
+        ResizeMode="NoResize">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -24,14 +25,11 @@
 
 
         <StackPanel Grid.Row="2" Background="#DEDEDE">
-            <Button Height="80" Content="Lager" ></Button>
-            <Button Height="80" Content="Ordrer"></Button>
+            <Button x:Name="WarehouseBtn" Height="80" Content="Lager" Click="WarehouseBtn_Click"></Button>
+            <Button x:Name="OrderBtn" Height="80" Content="Ordrer" Click="OrderBtn_Click"></Button>
+            <Button x:Name="SettingsBtn" Height="80" Content="Indstillinger" Click="SettingsBtn_Click"></Button>
         </StackPanel>
-
-        <Frame Grid.Row="2" Grid.Column="2" Content="Frame">
-            
-        </Frame>
-
-
+        
+        <Frame x:Name="FrameWindow" Grid.Row="2" Grid.Column="2" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
