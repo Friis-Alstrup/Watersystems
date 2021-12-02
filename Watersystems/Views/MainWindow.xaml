@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Watersystems"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Watersystems | Lagersystem" Height="720" Width="1280"
+        ResizeMode="NoResize">
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="2" Background="#F4F4F4">
+            <Image Height="100" Width="350" Source="Images/Logo.png"/>
+        </Grid>
+
+
+        <StackPanel Grid.Row="2" Background="#DEDEDE">
+            <Button x:Name="WarehouseBtn" Height="80" Content="Lager" Click="WarehouseBtn_Click"></Button>
+            <Button x:Name="OrderBtn" Height="80" Content="Ordrer" Click="OrderBtn_Click"></Button>
+            <Button x:Name="SettingsBtn" Height="80" Content="Indstillinger" Click="SettingsBtn_Click"></Button>
+        </StackPanel>
+        
+        <Frame x:Name="FrameWindow" Grid.Row="2" Grid.Column="2" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

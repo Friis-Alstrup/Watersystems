@@ -23,6 +23,22 @@ namespace Watersystems
         public MainWindow()
         {
             InitializeComponent();
+            FrameWindow.Source = new Uri("ProductList.xaml", UriKind.Relative);
+        }
+
+        private void WarehouseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameWindow.Source = new Uri("ProductList.xaml", UriKind.Relative);
+        }
+
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameWindow.Source = new Uri("OrderList.xaml", UriKind.Relative);
+        }
+
+        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameWindow.Source = new Uri("SettingsPage.xaml", UriKind.Relative);
         }
     }
 }
