@@ -12,8 +12,8 @@ namespace Watersystems.Models
         public int ProductNumber { get; set; }
         public double Quantity { get; set; }
         public string UnitType { get; set; }
-        public int warehouse { get; set; }
-        public Supplier supplier { get; set; }
+        public int Warehouse { get; set; }
+        public Supplier Supplier { get; set; }
 
         public Product(string productName, int productNumber, double quantity, string unitType, int warehouse, Supplier supplier)
         {
@@ -21,8 +21,8 @@ namespace Watersystems.Models
             this.ProductNumber = productNumber;
             this.Quantity = quantity;
             this.UnitType = unitType;
-            this.warehouse = warehouse;
-            this.supplier = supplier;
+            this.Warehouse = warehouse;
+            this.Supplier = supplier;
         }
     }
 }
