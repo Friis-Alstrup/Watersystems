@@ -10,22 +10,29 @@ namespace Watersystems.Models
     {
         public int OrderNumber { get; set; }
         public string OrderedBy { get; set; }
+        public DateTime DateOrdered { get; set; }
         public DateTime DateRecived { get; set; }
         public string RecivedBy { get; set; }
-        public Order(int orderNumber, string orderedBy) : this(orderNumber, orderedBy, DateTime.Now, string.Empty)
-        {
-           
-        }
-        public Order(int orderNumber, string orderedBy, string recivedBy) : this(orderNumber, orderedBy, DateTime.Now, recivedBy)
+
+        public List<Product> Products { get; set; } = new List<Product>();
+
+
+        public Order(int orderNumber, string orderedBy, List<Product> products) : this(orderNumber, orderedBy, DateTime.Today, default, string.Empty, products)
         {
 
         }
-        public Order(int orderNumber, string orderedBy, DateTime dateRecived, string recivedBy)
+        public Order(int orderNumber, string orderedBy, string recivedBy, List<Product> products ) : this(orderNumber, orderedBy, DateTime.Today, default, recivedBy, products)
+        {
+
+        }
+        public Order(int orderNumber, string orderedBy, DateTime dateOrdered, DateTime dateRecived, string recivedBy, List<Product> products)
         {
             this.OrderNumber = orderNumber;
             this.OrderedBy = orderedBy;
+            this.DateOrdered = dateOrdered;
             this.DateRecived = dateRecived;
             this.RecivedBy = recivedBy;
+            this.Products = products;
         }
 
     }
