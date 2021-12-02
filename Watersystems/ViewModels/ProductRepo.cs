@@ -34,10 +34,15 @@ namespace Watersystems.ViewModels
                 }
             }
         }
+
         public void Create(string productName, int productNumber, double quantity, string unitType, int warehouse, string supplier)
         {
-            products.Add(new Product(productName, productNumber, quantity, unitType, warehouse, new Supplier(supplier)));
+            Product product = new Product(productName, productNumber, quantity, unitType, warehouse, new Supplier(supplier));
+
+            products.Add(product);
+            SaveToFile(product);
         }
+
         public Product Get(int productNumber)
         {
             Product result = null;
@@ -51,6 +56,7 @@ namespace Watersystems.ViewModels
             }
             return result;
         }
+
         public List<Product> GetAll()
         {
             return products;
@@ -67,6 +73,14 @@ namespace Watersystems.ViewModels
                 products.Remove(product);
             }
 
+        }
+
+        private void SaveToFile(Product product)
+        {
+            using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
+            {
+                sw.WriteLine(product);
+            }
         }
     }
 }

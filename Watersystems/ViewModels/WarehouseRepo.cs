@@ -11,7 +11,7 @@ namespace Watersystems.ViewModels
    public class WarehouseRepo
     {
         private List<Warehouse> warehouses = new List<Warehouse>();
-        private string dataFileName = "warehouses.csv";
+        private string dataFileName = "Warehouses.csv";
 
         public WarehouseRepo()
         {
@@ -36,8 +36,13 @@ namespace Watersystems.ViewModels
 
         public void Create(int warehousename, string location)
         {
-            warehouses.Add(new Warehouse(warehousename, location));
+            Warehouse warehouse = new Warehouse(warehousename, location);
+
+            warehouses.Add(warehouse);
+            SaveToFile(warehouse);
+
         }
+
         public Warehouse Get(int warehouseName)
         {
             Warehouse result = null;
@@ -51,10 +56,12 @@ namespace Watersystems.ViewModels
             }
             return result;
         }
+
         public void Update()
         {
 
         }
+
         public void Delete(int warehouseName)
         {
             Warehouse warehouse = this.Get(warehouseName);
@@ -64,5 +71,12 @@ namespace Watersystems.ViewModels
             }
         }
 
+        private void SaveToFile(Warehouse warehouse)
+        {
+            using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
+            {
+                sw.WriteLine(warehouse);
+            }
+        }
     }
 }
