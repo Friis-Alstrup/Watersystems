@@ -9,7 +9,43 @@
       Title="SettingsPage">
 
     <Grid>
-        <Label Content="Indstillinger" HorizontalAlignment="Left" Margin="543,227,0,0" VerticalAlignment="Top"/>
-
+        <TextBox x:Name="WarehouseNameBox" HorizontalAlignment="Left" Margin="154,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Height="33" FontSize="18"/>
+        <TextBox x:Name="LocationBox" HorizontalAlignment="Left" Margin="154,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Height="33" FontSize="18"/>
+        <Button x:Name="AddWarehousebtn" Content="Tilføj Lager" HorizontalAlignment="Left" Margin="170,339,0,0" VerticalAlignment="Top" Width="250" Height="40" Click="AddWarehousebtn_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins SemiBold"></Setter>
+                    <Setter Property="Background" Value="#2A95DB"></Setter>
+                    <Setter Property="Foreground" Value="#fff"></Setter>
+                    <Setter Property="Cursor" Value="Hand"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF2177B0"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}" Height="40" Width="250">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Label Content="Nummer:" HorizontalAlignment="Left" Margin="154,169,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Lagernavn:" HorizontalAlignment="Left" Margin="154,246,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ListBox x:Name="ListBox" Margin="658,77,146,124">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="test"/>
+                        <TextBlock Text=" Nr: "/>
+                        <TextBlock Text="1"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="Tilføj lagerplads" HorizontalAlignment="Left" Margin="220,102,0,0" VerticalAlignment="Top" FontSize="20"/>
     </Grid>
 </Page>
