@@ -33,8 +33,11 @@ namespace Watersystems.Views
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
             AddProduct ap = new AddProduct();
-
-            ap.ShowDialog();
+            
+            if (ap.ShowDialog() == true)
+            {
+                pvm.CreateProduct(ap.productNameBox.Text, int.Parse(ap.productNumberBox.Text), 0, ap.unitTypeBox.Text, ap.SelectedWarehouse, ap.SelectedSupplier);
+            }
         }
     }
 }

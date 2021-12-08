@@ -22,7 +22,14 @@ namespace Watersystems.Views
     {
 
         WarehouseViewModel wvm = new WarehouseViewModel();
-        ProductViewModel pvm = new ProductViewModel();
+
+        public string SelectedProductName { get; set; }
+        public int SelectedProductNumber { get; set; }
+        public int SelectedQuantity { get; set; }
+        public string SelectedUnitType { get; set; }
+        public int SelectedWarehouse { get; set; }
+        public string SelectedSupplier { get; set; }
+
 
         public AddProduct()
         {
@@ -32,8 +39,12 @@ namespace Watersystems.Views
 
         private void AddProductToList_Click(object sender, RoutedEventArgs e)
         {
-            pvm.CreateProduct(productNameBox.Text, int.Parse(productNumberBox.Text), 0, unitTypeBox.Text, selectedWarehouse.SelectedIndex + 1, supplierBox.Text);    
-            Close();
+            SelectedProductName = productNameBox.Text;
+            SelectedProductNumber = int.Parse(productNumberBox.Text);
+            SelectedQuantity = 0;
+            SelectedWarehouse = selectedWarehouse.SelectedIndex + 1;
+            SelectedSupplier = supplierBox.Text;
+            DialogResult = true;
         }
     }
 }
