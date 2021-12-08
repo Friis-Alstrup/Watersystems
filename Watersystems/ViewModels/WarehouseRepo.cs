@@ -52,11 +52,6 @@ namespace Watersystems.ViewModels
             return warehouses;
         }
 
-        public void Update()
-        {
-
-        }
-
         public void Delete(int warehouseName)
         {
             Warehouse warehouse = this.Get(warehouseName);

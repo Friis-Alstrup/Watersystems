@@ -31,8 +31,7 @@ namespace Watersystems.ViewModels
         public void CreateWarehouse(int warehouseName, string location)
         {
             Warehouse warehouse = warehouseRepo.Create(warehouseName, location);
-            Warehouse adw = warehouse;
-            WarehouseVM.Add(adw);
+            WarehouseVM.Add(warehouse);
         }
 
         public Warehouse GetWarehouse(int warehouseName)

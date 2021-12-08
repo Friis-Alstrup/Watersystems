@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Watersystems.ViewModels;
 
 namespace Watersystems.Views
 {
@@ -20,9 +21,20 @@ namespace Watersystems.Views
     /// </summary>
     public partial class ProductList : Page
     {
+
+        ProductViewModel pvm = new ProductViewModel();
+
         public ProductList()
         {
             InitializeComponent();
+            DataContext = pvm;
+        }
+
+        private void AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProduct ap = new AddProduct();
+
+            ap.ShowDialog();
         }
     }
 }

@@ -10,15 +10,18 @@
 
     <Grid>
 
-        <DataGrid Margin="37,37,37,172">
+        <DataGrid x:Name="Datagrid" Margin="37,37,37,172" ItemsSource="{Binding ProductVM}" AutoGenerateColumns="false">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="366" Header=" Produkt nummer"/>
-                <DataGridTextColumn Width="366" Header=" Produkt Navn"/>
-                <DataGridTextColumn Width="366" Header=" Antal på lager"/>
+                <DataGridTextColumn Width="180" Header=" Produkt nummer" Binding="{Binding ProductNumber}"/>
+                <DataGridTextColumn Width="180" Header=" Produkt Navn" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Width="180" Header=" Antal på lager" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Width="180" Header="Enhed" Binding="{Binding UnitType}"/>
+                <DataGridTextColumn Width="180" Header="Lager" Binding="{Binding Warehouse.Location}"/>
+                <DataGridTextColumn Width="183.5" Header="Producent" Binding="{Binding Supplier.SupplierName}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="AddProduct" Content="Tilføj produkt" HorizontalAlignment="Left" Margin="134,502,0,0" VerticalAlignment="Top" Height="46" Width="230">
+        <Button x:Name="AddProduct" Content="Tilføj produkt" HorizontalAlignment="Left" Margin="134,502,0,0" VerticalAlignment="Top" Height="46" Width="230" Click="AddProduct_Click">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins SemiBold"></Setter>

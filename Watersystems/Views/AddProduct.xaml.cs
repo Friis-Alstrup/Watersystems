@@ -10,28 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Watersystems.ViewModels;
 
 namespace Watersystems.Views
 {
     /// <summary>
-    /// Interaction logic for SettingsPage.xaml
+    /// Interaction logic for AddProduct.xaml
     /// </summary>
-    public partial class SettingsPage : Page
+    public partial class AddProduct : Window
     {
-        WarehouseViewModel wvm = new WarehouseViewModel();
 
-        public SettingsPage()
+        WarehouseViewModel wvm = new WarehouseViewModel();
+        ProductViewModel pvm = new ProductViewModel();
+
+        public AddProduct()
         {
             InitializeComponent();
             DataContext = wvm;
         }
 
-        private void AddWarehousebtn_Click(object sender, RoutedEventArgs e)
+        private void AddProductToList_Click(object sender, RoutedEventArgs e)
         {
-            wvm.CreateWarehouse(int.Parse(WarehouseNameBox.Text), LocationBox.Text);
+            pvm.CreateProduct(productNameBox.Text, int.Parse(productNumberBox.Text), 0, unitTypeBox.Text, selectedWarehouse.SelectedIndex + 1, supplierBox.Text);    
+            Close();
         }
     }
 }

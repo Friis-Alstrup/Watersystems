@@ -1,0 +1,54 @@
+﻿<Window x:Class="Watersystems.Views.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Watersystems.Views"
+        mc:Ignorable="d"
+        Title="Tilføj produkt" Height="470" Width="500"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Produkt nummer:" HorizontalAlignment="Left" Margin="26,32,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Produkt navn:" HorizontalAlignment="Left" Margin="26,83,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Enhed:" HorizontalAlignment="Left" Margin="26,137,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Lager:" HorizontalAlignment="Left" Margin="26,196,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Producent:" HorizontalAlignment="Left" Margin="26,257,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="AddProductToList" Content="Tilføj produkt" HorizontalAlignment="Center" Margin="0,339,0,0" VerticalAlignment="Top" Height="46" Width="230" Click="AddProductToList_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins SemiBold"/>
+                    <Setter Property="Background" Value="#2A95DB"/>
+                    <Setter Property="Foreground" Value="#fff"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF2177B0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}" Height="46" Width="230">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBox x:Name="productNumberBox" HorizontalAlignment="Left" Margin="162,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
+        <TextBox x:Name="productNameBox" HorizontalAlignment="Left" Margin="162,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
+        <TextBox x:Name="unitTypeBox" HorizontalAlignment="Left" Margin="162,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
+
+        <ComboBox x:Name="selectedWarehouse" HorizontalAlignment="Left" Margin="162,199,0,0" VerticalAlignment="Top" Width="297" ItemsSource="{Binding WarehouseVM}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Location}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBox x:Name="supplierBox" HorizontalAlignment="Left" Margin="162,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
+
+    </Grid>
+</Window>
