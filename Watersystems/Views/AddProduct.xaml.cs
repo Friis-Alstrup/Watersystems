@@ -46,5 +46,10 @@ namespace Watersystems.Views
             SelectedSupplier = supplierBox.Text;
             DialogResult = true;
         }
+
+        private void CancelAddProductToList_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

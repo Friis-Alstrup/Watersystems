@@ -49,6 +49,20 @@ namespace Watersystems.ViewModels
             return result;
         }
 
+        public Product Get(string productName)
+        {
+            Product result = null;
+            foreach(Product product in products)
+            {
+                if (productName == product.ProductName)
+                {
+                    result = product;
+                    break;
+                }
+            }
+            return result;
+        }
+
         public List<Product> GetAll()
         {
             return products;
