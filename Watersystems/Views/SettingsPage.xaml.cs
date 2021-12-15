@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Watersystems.ViewModels;
 
 namespace Watersystems.Views
 {
@@ -20,9 +21,17 @@ namespace Watersystems.Views
     /// </summary>
     public partial class SettingsPage : Page
     {
+        WarehouseViewModel wvm = new WarehouseViewModel();
+
         public SettingsPage()
         {
             InitializeComponent();
+            DataContext = wvm;
+        }
+
+        private void AddWarehousebtn_Click(object sender, RoutedEventArgs e)
+        {
+            wvm.CreateWarehouse(int.Parse(WarehouseNameBox.Text), LocationBox.Text);
         }
     }
 }

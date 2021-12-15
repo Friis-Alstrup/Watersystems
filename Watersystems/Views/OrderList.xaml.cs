@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Watersystems.ViewModels;
 
 namespace Watersystems.Views
 {
@@ -20,9 +21,24 @@ namespace Watersystems.Views
     /// </summary>
     public partial class OrderList : Page
     {
+
+        OrderViewModel ovm = new OrderViewModel();
+        ProductViewModel pvm = new ProductViewModel();
+
         public OrderList()
         {
             InitializeComponent();
+            DataContext = ovm;
+        }
+
+        private void AddOrder_Click(object sender, RoutedEventArgs e)
+        {
+            AddOrder ao = new AddOrder();
+
+            if (ao.ShowDialog() == true)
+            {
+                ovm.CreateOrder(int.Parse(ao.SelectedOrderNumber), ao.SelectedOrderedBy, double.Parse(ao.SelectedQuantity), pvm.GetProduct(ao.SelectedProduct));
+            }
         }
     }
 }

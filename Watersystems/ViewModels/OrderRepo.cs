@@ -12,41 +12,24 @@ namespace Watersystems.ViewModels
     {
         private List<Order> orders = new List<Order>();
 
-        private string dataFileName = "Order.csv";
+        private string dataFileName = "Orders.csv";
 
         public OrderRepo()
         {
             InitializeRepo();
         }
 
-        private void InitializeRepo()
+        public Order Create(int orderNumber, string orderedBy, double quantity, Product product)
         {
-            using (StreamReader sr = new StreamReader(dataFileName))
-            {
-                string line = sr.ReadLine();
-                while (line != null)
-                {
-                    string[] parts = line.Split(",");
-
-                    this.Create(int.Parse(parts[0]), parts[1], parts[2]);
-
-                    line = sr.ReadLine();
-                }
-            }
-        }
-
-        public void Create(int orderNumber, string orderedBy, List<Product> products)
-        {
-            Order order = new Order(orderNumber, orderedBy, products);
-
+            Order order = new Order(orderNumber, orderedBy, quantity, product);
             orders.Add(order);
-            SaveToFile(order);
 
-        }
+            using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
+            {
+                sw.WriteLine($"{order.OrderNumber},{order.DateOrdered},{order.OrderedBy},{order.RecivedBy},{order.Quantity},{order.Product.ProductName}");
+            }
 
-        public void Create(int orderNumber, string orderedBy, string recivedBy, List<Product> products)
-        {
-            orders.Add(new Order(orderNumber, orderedBy, recivedBy, products));
+            return order;
         }
 
         public Order Get(int orderNumber)
@@ -68,10 +51,11 @@ namespace Watersystems.ViewModels
             return orders;
         }
 
+/*      Ment to be implemented later.
         public void Update()
         {
 
-        }
+        }*/
 
         public void Delete(int orderNumber)
         {
@@ -82,11 +66,21 @@ namespace Watersystems.ViewModels
             }
         }
 
-        private void SaveToFile(Order order)
+        private void InitializeRepo()
         {
-            using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
+            ProductRepo pr = new ProductRepo();
+
+            using (StreamReader sr = new StreamReader(dataFileName, Encoding.UTF8))
             {
-                sw.WriteLine(order);
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] parts = line.Split(",");
+
+                    orders.Add(new Order(int.Parse(parts[0]), parts[2], parts[1], double.Parse(parts[4]), parts[3], pr.Get(parts[5])));
+
+                    line = sr.ReadLine();
+                }
             }
         }
     }

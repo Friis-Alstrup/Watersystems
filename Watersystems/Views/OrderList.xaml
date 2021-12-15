@@ -9,7 +9,62 @@
       Title="OrderList">
 
     <Grid>
-        <Label Content="Ordrer" HorizontalAlignment="Left" Margin="574,284,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="Datagrid" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="403,45,57,55" ItemsSource="{Binding OrderVM}" AutoGenerateColumns="false">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="112" Header=" Ordrenummer" Binding="{Binding OrderNumber}"/>
+                <DataGridTextColumn Width="112" Header=" Bestillingsdato" Binding="{Binding DateOrdered}"/>
+                <DataGridTextColumn Width="112" Header=" Bestilt af" Binding="{Binding OrderedBy}"/>
+                <DataGridTextColumn Width="112" Header=" Modtaget af" Binding="{Binding RecivedBy}"/>
+                <DataGridTextColumn Width="112" Header="Produkt" Binding="{Binding Product.ProductName}"/>
+                <DataGridTextColumn Width="120" Header="Antal" Binding="{Binding Quantity}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
+        <Button x:Name="AddOrder" Content="Opret ordre" HorizontalAlignment="Left" Margin="96,180,0,0" VerticalAlignment="Top" Height="46" Width="230" Click="AddOrder_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins SemiBold"></Setter>
+                    <Setter Property="Background" Value="#2A95DB"></Setter>
+                    <Setter Property="Foreground" Value="#fff"></Setter>
+                    <Setter Property="Cursor" Value="Hand"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF2177B0"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}" Height="46" Width="230">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+        <Button x:Name="CloseOrder" Content="Afslut ordre" HorizontalAlignment="Left" Margin="96,389,0,0" VerticalAlignment="Top" Height="46" Width="230">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins SemiBold"></Setter>
+                    <Setter Property="Background" Value="#2A95DB"></Setter>
+                    <Setter Property="Foreground" Value="#fff"></Setter>
+                    <Setter Property="Cursor" Value="Hand"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF2177B0"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}" Height="46" Width="230">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Page>

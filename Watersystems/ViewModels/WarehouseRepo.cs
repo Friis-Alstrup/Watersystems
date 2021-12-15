@@ -8,39 +8,29 @@ using System.IO;
 
 namespace Watersystems.ViewModels
 {
-   public class WarehouseRepo
+    public class WarehouseRepo
     {
-        private List<Warehouse> warehouses = new List<Warehouse>();
         private string dataFileName = "Warehouses.csv";
+        private List<Warehouse> warehouses = new List<Warehouse>();
 
         public WarehouseRepo()
         {
             InitializeRepo();
         }
 
-        private void InitializeRepo()
+        public Warehouse Create(int warehouseName, string location)
         {
-            using (StreamReader sr = new StreamReader(dataFileName))
-            {
-                string line = sr.ReadLine();
-                while (line != null)
-                {
-                    string[] parts = line.Split(",");
 
-                    this.Create(int.Parse(parts[0]), parts[1]);
-
-                    line = sr.ReadLine();
-                }
-            }
-        }
-
-        public void Create(int warehousename, string location)
-        {
-            Warehouse warehouse = new Warehouse(warehousename, location);
+            Warehouse warehouse = new Warehouse(warehouseName, location);
 
             warehouses.Add(warehouse);
-            SaveToFile(warehouse);
 
+            using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
+            {
+                sw.WriteLine($"{warehouse.WarehouseName},{warehouse.Location}");
+            }
+
+            return warehouse;
         }
 
         public Warehouse Get(int warehouseName)
@@ -57,10 +47,16 @@ namespace Watersystems.ViewModels
             return result;
         }
 
+        public List<Warehouse> GetAll()
+        {
+            return warehouses;
+        }
+
+/*      Ment to be implemented later.
         public void Update()
         {
 
-        }
+        }*/
 
         public void Delete(int warehouseName)
         {
@@ -71,11 +67,17 @@ namespace Watersystems.ViewModels
             }
         }
 
-        private void SaveToFile(Warehouse warehouse)
+        public void InitializeRepo()
         {
-            using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
+            using (StreamReader sr = new StreamReader(dataFileName, Encoding.UTF8))
             {
-                sw.WriteLine(warehouse);
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] parts = line.Split(",");
+                    warehouses.Add(new Warehouse(int.Parse(parts[0]), parts[1]));
+                    line = sr.ReadLine();
+                }
             }
         }
     }

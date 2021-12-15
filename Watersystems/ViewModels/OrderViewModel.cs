@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,18 +11,27 @@ namespace Watersystems.ViewModels
    public class OrderViewModel
     {
         OrderRepo orderRepo = new OrderRepo();
-        
-        public void CreateOrder(int orderNumber, string orderedBy, string recievedBy, List<Product> products)
+
+        public ObservableCollection<Order> OrderVM { get; set; }
+
+        public OrderViewModel()
         {
-            orderRepo.Create(orderNumber, orderedBy, recievedBy, products);
+            OrderVM = new ObservableCollection<Order>();
+
+            foreach (Order order in GetAllOrders())
+            {
+                OrderVM.Add(order);
+            }
         }
-        public void CreateOrder(int orderNumber, string orderedBy, List<Product> products)
+
+        public void CreateOrder(int orderNumber, string orderedBy, double quantity, Product product)
         {
-            orderRepo.Create(orderNumber, orderedBy, products);
+            Order order = orderRepo.Create(orderNumber, orderedBy, quantity, product);
+            OrderVM.Add(order);
         }
-        public void GetAllOrders()
+        public List<Order> GetAllOrders()
         {
-            orderRepo.GetAll();
+            return orderRepo.GetAll();
         }
         public void GetOrder(int orderNumber)
         {

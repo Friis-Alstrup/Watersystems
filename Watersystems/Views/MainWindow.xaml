@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Watersystems"
         mc:Ignorable="d"
         Title="Watersystems | Lagersystem" Height="720" Width="1280"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.RowDefinitions>
