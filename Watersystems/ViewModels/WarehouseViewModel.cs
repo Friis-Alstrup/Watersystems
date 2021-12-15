@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +8,7 @@ using Watersystems.Models;
 
 namespace Watersystems.ViewModels
 {
-    public class WarehouseViewModel : INotifyPropertyChanged
+    public class WarehouseViewModel
     {
 
         public ObservableCollection<Warehouse> WarehouseVM { get; set; }
