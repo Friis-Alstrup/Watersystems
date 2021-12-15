@@ -39,7 +39,7 @@ namespace Watersystems.ViewModels
             return warehouseRepo.Get(warehouseName);
         }
 
-        public void DeleteSelectedPerson()
+        public void DeleteSelectedWarehouse()
         {
             // Need to be implemented -> warehouseRepo.Delete(warehouseName);
             WarehouseVM.Remove(SelectedWarehouseVM);

@@ -68,10 +68,11 @@ namespace Watersystems.ViewModels
             return products;
         }
 
+/*      Ment to be implemented later.
         public void Update()
         {
 
-        }
+        }*/
 
         public void Delete(int productNumber)
         {
@@ -84,7 +85,7 @@ namespace Watersystems.ViewModels
 
         private void InitializeRepo()
         {
-            using (StreamReader sr = new StreamReader(dataFileName))
+            using (StreamReader sr = new StreamReader(dataFileName, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
                 while (line != null)

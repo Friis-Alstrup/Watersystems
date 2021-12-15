@@ -53,12 +53,12 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Label Content="Ordernummer:" HorizontalAlignment="Left" Margin="26,32,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Bestilt af:" HorizontalAlignment="Left" Margin="26,83,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Produkt:" HorizontalAlignment="Left" Margin="26,141,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="orderNumberBox" HorizontalAlignment="Left" Margin="162,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
-        <TextBox x:Name="orderedByBox" HorizontalAlignment="Left" Margin="162,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
-        <ComboBox x:Name="selectedProduct" HorizontalAlignment="Left" Margin="162,144,0,0" VerticalAlignment="Top" Width="297" ItemsSource="{Binding ProductVM}">
+        <Label Content="Ordernummer:" HorizontalAlignment="Left" Margin="26,91,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Bestilt af:" HorizontalAlignment="Left" Margin="26,142,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Produkt:" HorizontalAlignment="Left" Margin="26,42,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="orderNumberBox" HorizontalAlignment="Left" Margin="162,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
+        <TextBox x:Name="orderedByBox" HorizontalAlignment="Left" Margin="162,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
+        <ComboBox x:Name="selectedProduct" HorizontalAlignment="Left" Margin="162,45,0,0" VerticalAlignment="Top" Width="297" ItemsSource="{Binding ProductVM}" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding ProductName}"/>

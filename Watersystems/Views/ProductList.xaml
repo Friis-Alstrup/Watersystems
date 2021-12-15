@@ -10,14 +10,14 @@
 
     <Grid>
 
-        <DataGrid x:Name="Datagrid" Margin="37,37,37,172" ItemsSource="{Binding ProductVM}" AutoGenerateColumns="false">
+        <DataGrid x:Name="Datagrid" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="37,37,37,172" ItemsSource="{Binding ProductVM}" AutoGenerateColumns="false">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="180" Header=" Produkt nummer" Binding="{Binding ProductNumber}"/>
-                <DataGridTextColumn Width="180" Header=" Produkt Navn" Binding="{Binding ProductName}"/>
-                <DataGridTextColumn Width="180" Header=" Antal på lager" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Width="180" Header="Enhed" Binding="{Binding UnitType}"/>
-                <DataGridTextColumn Width="180" Header="Lager" Binding="{Binding Warehouse.Location}"/>
-                <DataGridTextColumn Width="183.5" Header="Producent" Binding="{Binding Supplier.SupplierName}"/>
+                <DataGridTextColumn Width="110" Header=" Produkt nummer" Binding="{Binding ProductNumber}"/>
+                <DataGridTextColumn Width="445" Header=" Produkt Navn" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Width="130" Header=" Antal på lager" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Width="130" Header="Enhed" Binding="{Binding UnitType}"/>
+                <DataGridTextColumn Width="130" Header="Lager" Binding="{Binding Warehouse.Location}"/>
+                <DataGridTextColumn Width="120" Header="Producent" Binding="{Binding Supplier.SupplierName}"/>
             </DataGrid.Columns>
         </DataGrid>
 

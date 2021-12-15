@@ -9,13 +9,14 @@
       Title="OrderList">
 
     <Grid>
-        <DataGrid x:Name="Datagrid" Margin="403,45,57,55" ItemsSource="{Binding OrderVM}" AutoGenerateColumns="false">
+        <DataGrid x:Name="Datagrid" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="403,45,57,55" ItemsSource="{Binding OrderVM}" AutoGenerateColumns="false">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="139" Header=" Ordrenummer" Binding="{Binding OrderNumber}"/>
-                <DataGridTextColumn Width="139" Header=" Bestilt af" Binding="{Binding OrderedBy}"/>
-                <DataGridTextColumn Width="139" Header=" Modtaget af" Binding="{Binding RecivedBy}"/>
-                <DataGridTextColumn Width="139" Header="Produkt" Binding="{Binding Product.ProductName}"/>
-                <DataGridTextColumn Width="139" Header="Antal" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Width="112" Header=" Ordrenummer" Binding="{Binding OrderNumber}"/>
+                <DataGridTextColumn Width="112" Header=" Bestillingsdato" Binding="{Binding DateOrdered}"/>
+                <DataGridTextColumn Width="112" Header=" Bestilt af" Binding="{Binding OrderedBy}"/>
+                <DataGridTextColumn Width="112" Header=" Modtaget af" Binding="{Binding RecivedBy}"/>
+                <DataGridTextColumn Width="112" Header="Produkt" Binding="{Binding Product.ProductName}"/>
+                <DataGridTextColumn Width="120" Header="Antal" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
         </DataGrid>
 

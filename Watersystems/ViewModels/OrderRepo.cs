@@ -26,7 +26,7 @@ namespace Watersystems.ViewModels
 
             using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
             {
-                sw.WriteLine($"{order.OrderNumber},{order.OrderedBy},{order.RecivedBy},{order.Quantity},{order.Product.ProductName}");
+                sw.WriteLine($"{order.OrderNumber},{order.DateOrdered},{order.OrderedBy},{order.RecivedBy},{order.Quantity},{order.Product.ProductName}");
             }
 
             return order;
@@ -51,128 +51,37 @@ namespace Watersystems.ViewModels
             return orders;
         }
 
+/*      Ment to be implemented later.
         public void Update()
         {
 
-        }
+        }*/
 
         public void Delete(int orderNumber)
         {
-
+            Order order = this.Get(orderNumber);
+            if (order != null)
+            {
+                orders.Remove(order);
+            }
         }
 
         private void InitializeRepo()
         {
             ProductRepo pr = new ProductRepo();
 
-            using (StreamReader sr = new StreamReader(dataFileName))
+            using (StreamReader sr = new StreamReader(dataFileName, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
                 while (line != null)
                 {
                     string[] parts = line.Split(",");
 
-                    orders.Add(new Order(int.Parse(parts[0]), parts[1], double.Parse(parts[3]), parts[2], pr.Get(parts[4])));
+                    orders.Add(new Order(int.Parse(parts[0]), parts[2], parts[1], double.Parse(parts[4]), parts[3], pr.Get(parts[5])));
 
                     line = sr.ReadLine();
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*        public void Create(int orderNumber, string orderedBy, List<Product> products)
-                {
-                    Order order = new Order(orderNumber, orderedBy, products);
-
-                    orders.Add(order);
-                    SaveToFile(order);
-
-                }
-
-                public void Create(int orderNumber, string orderedBy, string recivedBy, List<Product> products)
-                {
-                    orders.Add(new Order(orderNumber, orderedBy, recivedBy, products));
-                }
-
-                public Order Get(int orderNumber)
-                {
-                    Order result = null;
-                    foreach (Order order in orders)
-                    {
-                        if (orderNumber == order.OrderNumber)
-                        {
-                            result = order;
-                            break;
-                        }
-                    }
-                    return result;
-                }
-
-                public List<Order> GetAll()
-                {
-                    return orders;
-                }
-
-                public void Update()
-                {
-
-                }
-
-                public void Delete(int orderNumber)
-                {
-                    Order order = this.Get(orderNumber);
-                    if (order != null)
-                    {
-                        orders.Remove(order);
-                    }
-                }
-
-                private void SaveToFile(Order order)
-                {
-                    using (StreamWriter sw = new StreamWriter(dataFileName, append: true))
-                    {
-                        sw.WriteLine(order);
-                    }
-                }*/
     }
 }

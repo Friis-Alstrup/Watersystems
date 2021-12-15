@@ -52,6 +52,12 @@ namespace Watersystems.ViewModels
             return warehouses;
         }
 
+/*      Ment to be implemented later.
+        public void Update()
+        {
+
+        }*/
+
         public void Delete(int warehouseName)
         {
             Warehouse warehouse = this.Get(warehouseName);
@@ -63,7 +69,7 @@ namespace Watersystems.ViewModels
 
         public void InitializeRepo()
         {
-            using (StreamReader sr = new StreamReader(dataFileName))
+            using (StreamReader sr = new StreamReader(dataFileName, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
                 while (line != null)
