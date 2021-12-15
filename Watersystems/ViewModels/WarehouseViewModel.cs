@@ -12,9 +12,6 @@ namespace Watersystems.ViewModels
     public class WarehouseViewModel : INotifyPropertyChanged
     {
 
-        private Warehouse _selectedWarehouseVM;
-        public Warehouse SelectedWarehouseVM { get { return _selectedWarehouseVM; } set { _selectedWarehouseVM = value; OnPropertyChanged("SelectedWarehouseVM"); } }
-
         public ObservableCollection<Warehouse> WarehouseVM { get; set; }
         WarehouseRepo warehouseRepo = new WarehouseRepo();
 
@@ -38,22 +35,5 @@ namespace Watersystems.ViewModels
         {
             return warehouseRepo.Get(warehouseName);
         }
-
-        public void DeleteSelectedWarehouse()
-        {
-            // Need to be implemented -> warehouseRepo.Delete(warehouseName);
-            WarehouseVM.Remove(SelectedWarehouseVM);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if (propertyChanged != null)
-            {
-                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
     }
 }
