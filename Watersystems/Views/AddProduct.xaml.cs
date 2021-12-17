@@ -42,6 +42,7 @@ namespace Watersystems.Views
             SelectedProductName = productNameBox.Text;
             SelectedProductNumber = int.Parse(productNumberBox.Text);
             SelectedQuantity = 0;
+            SelectedUnitType = unitTypeBox.Text;
             SelectedWarehouse = selectedWarehouse.SelectedIndex + 1;
             SelectedSupplier = supplierBox.Text;
             DialogResult = true;

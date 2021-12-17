@@ -36,7 +36,7 @@ namespace Watersystems.Views
             
             if (ap.ShowDialog() == true)
             {
-                pvm.CreateProduct(ap.productNameBox.Text, int.Parse(ap.productNumberBox.Text), ap.SelectedQuantity, ap.unitTypeBox.Text, ap.SelectedWarehouse, ap.SelectedSupplier);
+                pvm.CreateProduct(ap.SelectedProductName, ap.SelectedProductNumber, ap.SelectedQuantity, ap.SelectedUnitType, ap.SelectedWarehouse, ap.SelectedSupplier);
             }
         }
     }

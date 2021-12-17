@@ -39,22 +39,5 @@ namespace Watersystems.ViewModels
         {
             return productRepo.Get(productnumber);
         }
-
-        public void DeleteProduct(int productNumber)
-        {
-            Product product = productRepo.Get(productNumber);
-            ProductVM.Remove(product);
-            productRepo.Delete(productNumber);
-        }
-
-/*        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if (propertyChanged != null)
-            {
-                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }*/
     }
 }

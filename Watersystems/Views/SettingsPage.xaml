@@ -35,7 +35,7 @@
         </Button>
         <Label Content="Nummer:" HorizontalAlignment="Left" Margin="154,169,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Lagernavn:" HorizontalAlignment="Left" Margin="154,246,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ListBox x:Name="ListBox" Margin="658,77,146,124" ItemsSource="{Binding WarehouseVM}" SelectedItem="{Binding SelectedWarehouseVM}">
+        <ListBox x:Name="ListBox" Margin="658,77,146,124" ItemsSource="{Binding WarehouseVM}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

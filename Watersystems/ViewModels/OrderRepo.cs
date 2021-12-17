@@ -10,8 +10,8 @@ namespace Watersystems.ViewModels
 {
     public class OrderRepo
     {
+        // Defination af fields.
         private List<Order> orders = new List<Order>();
-
         private string dataFileName = "Orders.csv";
 
         public OrderRepo()
@@ -70,7 +70,7 @@ namespace Watersystems.ViewModels
         {
             ProductRepo pr = new ProductRepo();
 
-            using (StreamReader sr = new StreamReader(dataFileName, Encoding.UTF8))
+            using (StreamReader sr = new StreamReader(dataFileName))
             {
                 string line = sr.ReadLine();
                 while (line != null)

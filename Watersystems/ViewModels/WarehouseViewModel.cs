@@ -30,6 +30,7 @@ namespace Watersystems.ViewModels
             WarehouseVM.Add(warehouse);
         }
 
+        // Implementeres senere.
         public Warehouse GetWarehouse(int warehouseName)
         {
             return warehouseRepo.Get(warehouseName);

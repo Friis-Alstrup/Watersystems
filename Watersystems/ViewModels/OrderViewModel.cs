@@ -24,15 +24,20 @@ namespace Watersystems.ViewModels
             }
         }
 
+        // Oprettelse af ordre.
         public void CreateOrder(int orderNumber, string orderedBy, double quantity, Product product)
         {
             Order order = orderRepo.Create(orderNumber, orderedBy, quantity, product);
             OrderVM.Add(order);
         }
+
+        // Hent alle ordrer.
         public List<Order> GetAllOrders()
         {
             return orderRepo.GetAll();
         }
+
+        // ikke implementeret.
         public void GetOrder(int orderNumber)
         {
             orderRepo.Get(orderNumber);

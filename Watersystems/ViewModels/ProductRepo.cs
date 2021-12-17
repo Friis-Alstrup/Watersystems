@@ -85,7 +85,7 @@ namespace Watersystems.ViewModels
 
         private void InitializeRepo()
         {
-            using (StreamReader sr = new StreamReader(dataFileName, Encoding.UTF8))
+            using (StreamReader sr = new StreamReader(dataFileName))
             {
                 string line = sr.ReadLine();
                 while (line != null)

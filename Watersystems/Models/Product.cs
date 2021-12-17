@@ -8,6 +8,7 @@ namespace Watersystems.Models
 {
     public class Product
     {
+        // Defination af properties.
         public string ProductName { get; set; }
         public int ProductNumber { get; set; }
         public double Quantity { get; set; }
@@ -15,6 +16,8 @@ namespace Watersystems.Models
         public Warehouse Warehouse { get; set; }
         public Supplier Supplier { get; set; }
 
+
+        // Constructor
         public Product(string productName, int productNumber, double quantity, string unitType, Warehouse warehouse, Supplier supplier)
         {
             this.ProductName = productName;

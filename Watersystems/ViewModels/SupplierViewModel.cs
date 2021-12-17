@@ -9,6 +9,8 @@ namespace Watersystems.ViewModels
 {
    public class SupplierViewModel
     {
+
+        // Implementeres sernere.
         public Supplier CreateSupplier(string supplierName)
         {
             return new Supplier(supplierName);

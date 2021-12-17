@@ -8,6 +8,7 @@ namespace Watersystems.Models
 {
     public class Order
     {
+        // Defination af properties
         public int OrderNumber { get; set; }
         public string OrderedBy { get; set; }
         public string DateOrdered { get; set; }
@@ -16,21 +17,21 @@ namespace Watersystems.Models
         public double Quantity { get; set; }
         public Product Product { get; set; }
 
+        // Constructor overloading
+        
+        // Modtager kun Ordernummer, Bestilt af, antal og produktet. (Brugt i UI)
         public Order(int orderNumber, string orderedBy, double quantity, Product product) : this(orderNumber, orderedBy, DateTime.Now.ToString("dd/MM/yyyy"), default, "Ikke modtaget", quantity, product)
         {
 
         }
 
-        public Order(int orderNumber, string orderedBy, double quantity, string RecivedBy, Product product) : this(orderNumber, orderedBy, DateTime.Now.ToString("dd/MM/yyyy"), default, RecivedBy, quantity, product)
-        {
-
-        }
-
+        // Bliver brugt til at initialize repositoriet ud fra csv-filen.
         public Order(int orderNumber, string orderedBy, string dateOrdered, double quantity, string RecivedBy, Product product) : this(orderNumber, orderedBy, dateOrdered, default, RecivedBy, quantity, product)
         {
 
         }
 
+        // Modtager alle properties.
         public Order(int orderNumber, string orderedBy, string dateOrdered, DateTime dateRecived, string recivedBy, double quantity, Product product)
         {
             this.OrderNumber = orderNumber;
